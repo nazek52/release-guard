@@ -1,0 +1,31 @@
+name: release-guard-lab
+x-target: &target
+  build:
+    context: .
+    dockerfile: demo/Dockerfile
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 64
+  mem_limit: 128m
+  healthcheck:
+    test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health',timeout=2)"]
+    interval: 3s
+    timeout: 3s
+    retries: 10
+services:
+  baseline:
+    <<: *target
+    environment:
+      MODE: healthy
+    ports: ["127.0.0.1:18081:8080"]
+  canary:
+    <<: *target
+    environment:
+      MODE: ${CANARY_MODE:-healthy}
+    ports: ["127.0.0.1:18082:8080"]
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${LAB_SUBNET:-10.203.42.0/24}

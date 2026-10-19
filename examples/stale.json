@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "windows": [
+    {
+      "start": "2025-12-31T00:03:00+00:00",
+      "end": "2025-12-31T00:04:00+00:00",
+      "baseline": {
+        "requests": 1000,
+        "errors": 0,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 1000
+          },
+          {
+            "le": 500,
+            "count": 1000
+          },
+          {
+            "le": "+Inf",
+            "count": 1000
+          }
+        ]
+      },
+      "canary": {
+        "requests": 1000,
+        "errors": 0,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 1000
+          },
+          {
+            "le": 500,
+            "count": 1000
+          },
+          {
+            "le": "+Inf",
+            "count": 1000
+          }
+        ]
+      }
+    },
+    {
+      "start": "2025-12-31T00:04:00+00:00",
+      "end": "2025-12-31T00:05:00+00:00",
+      "baseline": {
+        "requests": 1000,
+        "errors": 0,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 1000
+          },
+          {
+            "le": 500,
+            "count": 1000
+          },
+          {
+            "le": "+Inf",
+            "count": 1000
+          }
+        ]
+      },
+      "canary": {
+        "requests": 1000,
+        "errors": 0,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 1000
+          },
+          {
+            "le": 500,
+            "count": 1000
+          },
+          {
+            "le": "+Inf",
+            "count": 1000
+          }
+        ]
+      }
+    }
+  ],
+  "source": "synthetic deterministic fixture, not production telemetry"
+}

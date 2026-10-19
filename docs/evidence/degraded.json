@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "source": "real HTTP traffic against controlled local demo",
+  "windows": [
+    {
+      "start": "2026-10-19T10:41:20.207779+00:00",
+      "end": "2026-10-19T10:41:41.252690+00:00",
+      "baseline": {
+        "requests": 400,
+        "errors": 0,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 309
+          },
+          {
+            "le": 50,
+            "count": 397
+          },
+          {
+            "le": 100,
+            "count": 397
+          },
+          {
+            "le": 150,
+            "count": 397
+          },
+          {
+            "le": 250,
+            "count": 400
+          },
+          {
+            "le": 500,
+            "count": 400
+          },
+          {
+            "le": 1000,
+            "count": 400
+          },
+          {
+            "le": 5000,
+            "count": 400
+          },
+          {
+            "le": "+Inf",
+            "count": 400
+          }
+        ]
+      },
+      "canary": {
+        "requests": 400,
+        "errors": 80,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 0
+          },
+          {
+            "le": 50,
+            "count": 0
+          },
+          {
+            "le": 100,
+            "count": 0
+          },
+          {
+            "le": 150,
+            "count": 0
+          },
+          {
+            "le": 250,
+            "count": 397
+          },
+          {
+            "le": 500,
+            "count": 400
+          },
+          {
+            "le": 1000,
+            "count": 400
+          },
+          {
+            "le": 5000,
+            "count": 400
+          },
+          {
+            "le": "+Inf",
+            "count": 400
+          }
+        ]
+      }
+    },
+    {
+      "start": "2026-10-19T10:41:41.252690+00:00",
+      "end": "2026-10-19T10:42:01.963007+00:00",
+      "baseline": {
+        "requests": 400,
+        "errors": 0,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 289
+          },
+          {
+            "le": 50,
+            "count": 400
+          },
+          {
+            "le": 100,
+            "count": 400
+          },
+          {
+            "le": 150,
+            "count": 400
+          },
+          {
+            "le": 250,
+            "count": 400
+          },
+          {
+            "le": 500,
+            "count": 400
+          },
+          {
+            "le": 1000,
+            "count": 400
+          },
+          {
+            "le": 5000,
+            "count": 400
+          },
+          {
+            "le": "+Inf",
+            "count": 400
+          }
+        ]
+      },
+      "canary": {
+        "requests": 400,
+        "errors": 80,
+        "latency_ms": [
+          {
+            "le": 10,
+            "count": 0
+          },
+          {
+            "le": 25,
+            "count": 0
+          },
+          {
+            "le": 50,
+            "count": 0
+          },
+          {
+            "le": 100,
+            "count": 0
+          },
+          {
+            "le": 150,
+            "count": 0
+          },
+          {
+            "le": 250,
+            "count": 400
+          },
+          {
+            "le": 500,
+            "count": 400
+          },
+          {
+            "le": 1000,
+            "count": 400
+          },
+          {
+            "le": 5000,
+            "count": 400
+          },
+          {
+            "le": "+Inf",
+            "count": 400
+          }
+        ]
+      }
+    }
+  ]
+}

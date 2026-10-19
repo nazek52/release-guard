@@ -1,0 +1,38 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - run: python scripts/verify_fixtures.py
+      - run: docker compose up -d --build --wait
+      - run: python demo/collect.py
+      - run: python -m guard artifacts/evidence.json --output artifacts/healthy-report.json
+      - run: CANARY_MODE=degraded docker compose up -d --wait canary
+      - run: python demo/collect.py --output artifacts/degraded.json
+      - name: A degraded candidate must be rejected
+        run: |
+          set +e
+          python -m guard artifacts/degraded.json --output artifacts/degraded-report.json
+          code=$?
+          test "$code" -eq 1
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: canary-evidence
+          path: artifacts/
+      - if: always()
+        run: docker compose down

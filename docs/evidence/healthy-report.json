@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "min_requests": 300,
+    "max_error_rate": 0.02,
+    "max_error_increase": 0.02,
+    "max_p95_ms": 150,
+    "max_p95_ratio": 3,
+    "max_age_seconds": 300,
+    "min_window_seconds": 1,
+    "max_window_seconds": 3600,
+    "consecutive_windows": 2
+  },
+  "evaluated_at": "2026-10-19T10:35:51.651495+00:00",
+  "windows": [
+    {
+      "verdict": "PASS",
+      "reasons": [
+        "All conservative bounds satisfy policy"
+      ],
+      "start": "2026-10-19T10:35:46.275441+00:00",
+      "end": "2026-10-19T10:35:48.953536+00:00",
+      "baseline": {
+        "requests": 400,
+        "errors": 0,
+        "error_interval_95pct": [
+          0,
+          0.009512640599680667
+        ],
+        "p95_bucket_ms": [
+          25.0,
+          50.0
+        ]
+      },
+      "canary": {
+        "requests": 400,
+        "errors": 0,
+        "error_interval_95pct": [
+          0,
+          0.009512640599680667
+        ],
+        "p95_bucket_ms": [
+          25.0,
+          50.0
+        ]
+      },
+      "p95_ratio_interval": [
+        0.5,
+        2.0
+      ]
+    },
+    {
+      "verdict": "PASS",
+      "reasons": [
+        "All conservative bounds satisfy policy"
+      ],
+      "start": "2026-10-19T10:35:48.953536+00:00",
+      "end": "2026-10-19T10:35:51.334096+00:00",
+      "baseline": {
+        "requests": 400,
+        "errors": 0,
+        "error_interval_95pct": [
+          0,
+          0.009512640599680667
+        ],
+        "p95_bucket_ms": [
+          25.0,
+          50.0
+        ]
+      },
+      "canary": {
+        "requests": 400,
+        "errors": 0,
+        "error_interval_95pct": [
+          0,
+          0.009512640599680667
+        ],
+        "p95_bucket_ms": [
+          25.0,
+          50.0
+        ]
+      },
+      "p95_ratio_interval": [
+        0.5,
+        2.0
+      ]
+    }
+  ],
+  "action": "No deployment mutation is performed",
+  "verdict": "PASS",
+  "reason": "Every window passed the conservative gate"
+}
